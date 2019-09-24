@@ -13,12 +13,12 @@ const generateGif = (name) => {
     let last = frames.pop();
     frames.push({
         path: last,
-        delay: 300
+        delay: 3000
     });
 
     let buf = ScreencastGIF({
         frame: {
-            delay: 10
+            delay: 100
         },
         frames: frames
     });

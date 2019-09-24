@@ -26,8 +26,8 @@ let buf = ScreencastGIF({
 
     //frame
     frame: {
-        // delay in hundredths of a sec (100 = 1s).
-        delay: 10,
+        //ms
+        delay: 100,
 
         //0 - No disposal specified.
         //1 - Do not dispose. 
@@ -41,7 +41,7 @@ let buf = ScreencastGIF({
    
     frames: ["1.png", "2.png", "3.png", {
         path: "4.png",
-        delay: 100
+        delay: 500
     }]
 });
 fs.writeFileSync("my.gif", buf);
@@ -49,5 +49,5 @@ fs.writeFileSync("my.gif", buf);
 
 ## CHANGELOG
 
-+ v1.0.0
-  - init
++ v1.0.1
+  - fix delay in ms (1000 = 1s) from hundredths of a sec (100 = 1s).
