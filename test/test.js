@@ -16,7 +16,7 @@ const generateGif = (name) => {
     console.log("generated and cost " + (Date.now() - time_start).toLocaleString() + "ms: " + gifpath);
 };
 
-generateGif("elf");
 generateGif("screenshot");
+generateGif("elf");
 generateGif("cat");
 generateGif("photo");
