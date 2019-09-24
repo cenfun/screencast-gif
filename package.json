@@ -1,17 +1,13 @@
 {
-  "name": "gif-maker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "image-palette": "^2.1.0",
-    "next-pow-2": "^1.0.0",
-    "omggif": "^1.0.10",
-    "upng-js": "^2.1.0"
-  }
+    "name": "screencast-gif",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "scripts": {
+
+    },
+    "dependencies": {
+        "omggif": "^1.0.10",
+        "upng-js": "^2.1.0"
+    }
 }

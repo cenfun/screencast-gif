@@ -1,13 +1,15 @@
 const fs = require("fs");
-const GifMaker = require("../");
+const ScreencastGIF = require("../lib");
 
 const generate = async () => {
 
-    let time_start = Date.now();
-    let frames = fs.readdirSync("elf").map((filename) => {
+    let time_start, frames;
+
+    time_start = Date.now();
+    frames = fs.readdirSync("elf").map((filename) => {
         return "elf/" + filename;
     });
-    await GifMaker({
+    await ScreencastGIF({
         frames: frames,
         output: "elf.gif"
     });
@@ -18,7 +20,7 @@ const generate = async () => {
     frames = fs.readdirSync("screenshot").map((filename) => {
         return "screenshot/" + filename;
     });
-    await GifMaker({
+    await ScreencastGIF({
         frames: frames,
         output: "screenshot.gif"
     });

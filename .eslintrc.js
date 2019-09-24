@@ -55,7 +55,7 @@ module.exports = {
 
         "max-params": ["error", 8],
         "max-depth": ["error", 4],
-        "max-statements": ["error", 25],
+        "max-statements": ["error", 50],
         "complexity": ["error", 18],
         "max-len": ["error", 200],
         "max-nested-callbacks": ["error", 3],
