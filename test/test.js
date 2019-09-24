@@ -10,6 +10,9 @@ const generateGif = (name) => {
         return folder + "/" + pngname;
     });
     let buf = ScreencastGIF({
+        frame: {
+            delay: 100
+        },
         frames: frames
     });
     fs.writeFileSync(gifpath, buf);
