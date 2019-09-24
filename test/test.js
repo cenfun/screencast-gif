@@ -1,32 +1,22 @@
 const fs = require("fs");
 const ScreencastGIF = require("../lib");
 
-const generate = async () => {
-
-    let time_start, frames;
-
-    time_start = Date.now();
-    frames = fs.readdirSync("elf").map((filename) => {
-        return "elf/" + filename;
+const generateGif = (name) => {
+    let time_start = Date.now();
+    let folder = "example/" + name;
+    let gifpath = folder + ".gif";
+    console.log("start to generate: " + gifpath + " from png folder " + folder + " ...");
+    let frames = fs.readdirSync(folder).map((pngname) => {
+        return folder + "/" + pngname;
     });
-    await ScreencastGIF({
-        frames: frames,
-        output: "elf.gif"
+    let buf = ScreencastGIF({
+        frames: frames
     });
-    console.log((Date.now() - time_start).toLocaleString() + "ms - elf.gif");
-
-
-    time_start = Date.now();
-    frames = fs.readdirSync("screenshot").map((filename) => {
-        return "screenshot/" + filename;
-    });
-    await ScreencastGIF({
-        frames: frames,
-        output: "screenshot.gif"
-    });
-    console.log((Date.now() - time_start).toLocaleString() + "ms - screenshot.gif");
-
+    fs.writeFileSync(gifpath, buf);
+    console.log("generated and cost " + (Date.now() - time_start).toLocaleString() + "ms: " + gifpath);
 };
 
-
-generate();
+generateGif("elf");
+generateGif("screenshot");
+generateGif("cat");
+generateGif("photo");
