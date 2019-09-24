@@ -8,15 +8,44 @@ npm install screencast-gif
 ```
 ## Usage
 ```js
-//master.js for master process
-const SG = require("screencast-gif");
-const option = {
+const fs = require("fs");
+const ScreencastGIF = require("screencast-gif");
+let buf = ScreencastGIF({
+    //transform png transparent pixels
+    pngBgColor: 0xffffff,
+
+    //global
+
+    //the number of times to loop, or 0 for forever.
+    loop: 0,
+
+    //Handling of Global Color Table
+    palette: [0xffffff, 0x000000],
+    //background color index
+    background: 0,
+
+    //frame
+    frame: {
+        // delay in hundredths of a sec (100 = 1s).
+        delay: 10,
+
+        //0 - No disposal specified.
+        //1 - Do not dispose. 
+        //2 - Restore to background color.
+        //3 - Restore to previous. 
+        disposal: 0,
+
+        //transparent color index
+        transparent: 0
+    },
    
-};
-const code = await MPW(option);
+    frames: ["1.png", "2.png", "3.png", {
+        path: "4.png",
+        delay: 100
+    }]
+});
+fs.writeFileSync("my.gif", buf);
 ```
-
-
 
 ## CHANGELOG
 

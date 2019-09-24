@@ -9,9 +9,16 @@ const generateGif = (name) => {
     let frames = fs.readdirSync(folder).map((pngname) => {
         return folder + "/" + pngname;
     });
+
+    let last = frames.pop();
+    frames.push({
+        path: last,
+        delay: 300
+    });
+
     let buf = ScreencastGIF({
         frame: {
-            delay: 100
+            delay: 10
         },
         frames: frames
     });
