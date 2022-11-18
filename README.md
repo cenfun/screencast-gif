@@ -16,8 +16,11 @@ let buf = ScreencastGIF({
 
     //global
 
-    //the number of times to loop, or 0 for forever.
-    loop: 0,
+    //the number of times to repeat, or 0 for forever.
+    repeat: 0,
+
+    // Net Quantization Algorithm quality 1 - 30
+    quality: 10,
 
     //Handling of Global Color Table
     palette: [0xffffff, 0x000000],
